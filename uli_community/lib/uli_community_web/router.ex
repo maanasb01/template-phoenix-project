@@ -47,7 +47,7 @@ defmodule UliCommunityWeb.Router do
 
   ## Authentication routes
 
-  scope "/", UliCommunityWeb do
+  scope "/api", UliCommunityWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     get "/users/register", UserRegistrationController, :new
@@ -60,7 +60,7 @@ defmodule UliCommunityWeb.Router do
     put "/users/reset_password/:token", UserResetPasswordController, :update
   end
 
-  scope "/", UliCommunityWeb do
+  scope "/api", UliCommunityWeb do
     pipe_through [:browser, :require_authenticated_user]
 
     get "/users/settings", UserSettingsController, :edit
@@ -68,7 +68,7 @@ defmodule UliCommunityWeb.Router do
     get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
   end
 
-  scope "/", UliCommunityWeb do
+  scope "/api", UliCommunityWeb do
     pipe_through [:browser]
 
     delete "/users/log_out", UserSessionController, :delete
