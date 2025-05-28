@@ -114,6 +114,7 @@ defmodule TattleWeb.Router do
       live "/users/log_in", UserLoginLive, :new
       live "/users/reset_password", UserForgotPasswordLive, :new
       live "/users/reset_password/:token", UserResetPasswordLive, :edit
+      live "/users/confirm/landing", UserConfirmationLandingLive, :index
     end
 
     post "/users/log_in", UserSessionLiveController, :create
